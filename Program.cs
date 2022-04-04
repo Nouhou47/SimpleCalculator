@@ -54,14 +54,17 @@ namespace SimpleCalculator{
                         {
                             case "add": case "+":
                                 result = operande1 + operande2;
+                                Console.WriteLine("Result : " + operande1 + " + " + operande2 + " = " + result);
                                 break;
 
                             case "sub": case "-":
                                 result = operande1 - operande2;
+                                Console.WriteLine("Result : " + operande1 + " - " + operande2 + " = " + result);
                                 break;
 
                             case "mul": case "*":
                                 result = operande1 * operande2;
+                                Console.WriteLine("Result : " + operande1 + " * " + operande2 + " = " + result);
                                 break;
 
                             case "div": case "/":
@@ -71,6 +74,7 @@ namespace SimpleCalculator{
                                     break;
                                 } else {
                                     result = operande1 / operande2;
+                                    Console.WriteLine("Result : " + operande1 + " / " + operande2 + " = " + result);
                                     break;
                                 }
                                 break;
