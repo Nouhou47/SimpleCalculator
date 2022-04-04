@@ -10,6 +10,7 @@ namespace SimpleCalculator{
 
             state = 0;
             do{
+                Console.WriteLine("-------------- SimpleCalculator --------------");
                 switch (state) {
                     case 0:
                         Console.WriteLine("Initialising Simple Calculator!");
@@ -31,7 +32,7 @@ namespace SimpleCalculator{
                         string str2 = Console.ReadLine();
                         if (!Double.TryParse(str2, out operande2)) {
                             Console.WriteLine("Error: Enter a numerical value!");
-                            state = 4; // We stop the application.
+                            state = 4; // We stop the program.
                         }
                         state = 2;
                         break;
@@ -46,7 +47,7 @@ namespace SimpleCalculator{
                         Console.WriteLine("# For Addition >> ADD or +\n# For Substraction >> SUB or -\n# For Multiplication >> MUL or *\n# For Division >> DIV or /");
                         
                         string s = Console.ReadLine();
-                        Console.WriteLine("You wrote: " + s.ToLower());
+                        Console.WriteLine("You choose: " + s.ToLower());
                         s = s.ToLower();
                         switch (s)
                         {
@@ -87,7 +88,22 @@ namespace SimpleCalculator{
                         operande1 = 0.0;
                         operande2 = 0.0;
                         result = 0.0;
-                        state = 4;
+                        
+                        Console.WriteLine("Will you wish to continue? # y > YES # n > NO");
+                        char c = Convert.ToChar(Console.ReadLine());
+                        if ( c == 'y' ) {
+                            Console.WriteLine("You will continue!");
+                            state = 0;
+                        } 
+                        if ( c == 'n' ) {
+                            Console.WriteLine("You will stop the program!");
+                            state = 4;
+                        }
+                        if ( c != 'n' && c != 'y') {
+                            Console.WriteLine("Unknow choice!");
+                            state = 4;
+                        }
+                        
                         break;
                     
                     default:
@@ -96,7 +112,7 @@ namespace SimpleCalculator{
                 }
             } while(state != 4);
 
-            Console.WriteLine("Hello C#");
+            Console.WriteLine("Bye Bye!!!");
         }
     }
 }
