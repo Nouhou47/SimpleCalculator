@@ -2,15 +2,22 @@
 
 namespace SimpleCalculator{
     class Program{
+        
         static void Main(String[] args) {
             
-            int state = 0;
+            double operande1 = 0.0, operande2 = 0.0, result = 0.0;
+            string operateur;
+            int state;
+
+            state = 0;
             do{
                 switch (state) {
                     case 0:
                         Console.WriteLine("Initialising Simple Calculator!");
-                        double operande1 = 0.0, operande2 = 0.0, result = 0.0;
-                        string operateur = "";
+                        operande1 = 0.0; // Variable that will contain first operand value.
+                        operande2 = 0.0; // Variable that will contain second operand value.
+                        result = 0.0; // Variable that will contain the result of the operation.
+                        operateur = ""; // Variable that will be used to swith between operators.
                         state = 1;
                         break;
                     case 1: // Getting inputs
@@ -30,20 +37,49 @@ namespace SimpleCalculator{
                         }
                         state = 2;
                         break;
-                    case 2: // Choose the operator to apply: + or - or * or /
-                        Console.WriteLine("case 2!");
+                    case 2: 
+                    /** The most complex state!
+                     *  Choose the operator to apply: + or - or * or /.
+                     *  Processing operation.
+                     *  Displaying result to standard output.
+                     */
+                        Console.WriteLine("Case 2: Choose an operator to apply to operands!");
+
+                        Console.WriteLine("# For Addition >> ADD or +\n# For Substraction >> SUB or -\n# For Multiplication >> MUL or *\n# For Division >> DIV or /");
+                        
+                        string s = Console.ReadLine();
+                        Console.WriteLine("You wrote: " + s.ToLower());
+                        s = s.ToLower();
+                        switch (s)
+                        {
+                            case "add": case "+":
+                                
+                                break;
+
+                            case "sub": case "-":
+                                
+                                break;
+
+                            case "mul": case "*":
+                                
+                                break;
+
+                            case "div": case "/":
+                                
+                                break;
+                            default:
+                                Console.WriteLine("Error! No such operator! Please Typed an operator from the given list.");
+                                break;
+                        }
                         state = 3;
                         break;
-                    case 3:
+                    case 3: // Displaying result of th operation to stabdard output.
                         Console.WriteLine("case 3!");
                         state = 4;
                         break;
-                    case 4:
-                        Console.WriteLine("case 4!");
-                        state = 5;
-                        break;
+                    
                     default:
-                        Console.WriteLine("default case");
+                        Console.WriteLine("No such state!");
                         break;
                 }
             } while(state != 5);
