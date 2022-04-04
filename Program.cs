@@ -14,6 +14,20 @@ namespace SimpleCalculator{
                 switch (state) {
                     case 0:
                         Console.WriteLine("Initialising Simple Calculator!");
+                        long t = 0;
+                        while ( t < 4545 ) {
+                            Console.Write("|");
+                            Console.Write("\b");
+                            Console.Write("/");
+                            Console.Write("\b");
+                            Console.Write("-");
+                            Console.Write("\b");
+                            Console.Write("\\");
+                            Console.Write("\b");
+                           // Console.Write("|");
+                            //Console.Write("\b");
+                            t++;
+                        }
                         operande1 = 0.0; // Variable that will contain first operand value.
                         operande2 = 0.0; // Variable that will contain second operand value.
                         result = 0.0; // Variable that will contain the result of the operation.
