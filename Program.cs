@@ -53,19 +53,26 @@ namespace SimpleCalculator{
                         switch (s)
                         {
                             case "add": case "+":
-                                
+                                result = operande1 + operande2;
                                 break;
 
                             case "sub": case "-":
-                                
+                                result = operande1 - operande2;
                                 break;
 
                             case "mul": case "*":
-                                
+                                result = operande1 * operande2;
                                 break;
 
                             case "div": case "/":
-                                
+                                if (operande2 == 0) {
+                                    Console.WriteLine("Math Error! Division by Zero not permitted!");
+                                    state = 5; // We stop the application if second operator (denominator) equals zero
+                                    break;
+                                } else {
+                                    result = operande1 / operande2;
+                                    break;
+                                }
                                 break;
                             default:
                                 Console.WriteLine("Error! No such operator! Please Typed an operator from the given list.");
