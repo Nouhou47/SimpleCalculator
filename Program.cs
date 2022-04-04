@@ -6,7 +6,6 @@ namespace SimpleCalculator{
         static void Main(String[] args) {
             
             double operande1 = 0.0, operande2 = 0.0, result = 0.0;
-            string operateur;
             int state;
 
             state = 0;
@@ -17,7 +16,6 @@ namespace SimpleCalculator{
                         operande1 = 0.0; // Variable that will contain first operand value.
                         operande2 = 0.0; // Variable that will contain second operand value.
                         result = 0.0; // Variable that will contain the result of the operation.
-                        operateur = ""; // Variable that will be used to swith between operators.
                         state = 1;
                         break;
                     case 1: // Getting inputs
@@ -27,13 +25,13 @@ namespace SimpleCalculator{
                         string str1 = Console.ReadLine();
                         if (!Double.TryParse(str1, out operande1)) {
                             Console.WriteLine("Error: Enter a numerical value!");
-                            state = 5; // We stop the application.
+                            state = 4; // We stop the application.
                         }
                         Console.WriteLine("Enter second operand: ");
                         string str2 = Console.ReadLine();
                         if (!Double.TryParse(str2, out operande2)) {
                             Console.WriteLine("Error: Enter a numerical value!");
-                            state = 5; // We stop the application.
+                            state = 4; // We stop the application.
                         }
                         state = 2;
                         break;
@@ -70,22 +68,25 @@ namespace SimpleCalculator{
                             case "div": case "/":
                                 if (operande2 == 0) {
                                     Console.WriteLine("Math Error! Division by Zero not permitted!");
-                                    state = 5; // We stop the application if second operator (denominator) equals zero
+                                    state = 4; // We stop the application if second operator (denominator) equals zero
                                     break;
                                 } else {
                                     result = operande1 / operande2;
                                     Console.WriteLine("Result : " + operande1 + " / " + operande2 + " = " + result);
                                     break;
                                 }
-                                break;
+                                
                             default:
                                 Console.WriteLine("Error! No such operator! Please Typed an operator from the given list.");
                                 break;
                         }
                         state = 3;
                         break;
-                    case 3: // Displaying result of th operation to stabdard output.
-                        Console.WriteLine("case 3!");
+                    case 3: // Setting all variable to a null value;.
+                        Console.WriteLine("Seeting every thing to null!");
+                        operande1 = 0.0;
+                        operande2 = 0.0;
+                        result = 0.0;
                         state = 4;
                         break;
                     
@@ -93,7 +94,7 @@ namespace SimpleCalculator{
                         Console.WriteLine("No such state!");
                         break;
                 }
-            } while(state != 5);
+            } while(state != 4);
 
             Console.WriteLine("Hello C#");
         }
