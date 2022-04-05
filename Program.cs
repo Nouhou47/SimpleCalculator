@@ -15,7 +15,7 @@ namespace SimpleCalculator{
                     case 0:
                         Console.WriteLine("Initialising Simple Calculator!");
                         long t = 0;
-                        while ( t < 4545 ) {
+                        while ( t < 454 ) {
                             Console.Write("|");
                             Console.Write("\b");
                             Console.Write("/");
